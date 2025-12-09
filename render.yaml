@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: telegram-music-bot
+    env: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      apt-get update && apt-get install -y ffmpeg
+    startCommand: python bot.py
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: RENDER
+        value: true
+      - key: PORT
+        value: 8080
+
+buildCommand: |
+  apt-get update && apt-get install -y ffmpeg
+  pip install -r requirements.txt
