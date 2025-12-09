@@ -1,0 +1,6 @@
+python-telegram-bot==20.7
+yt-dlp==2024.4.9
+python-dotenv==1.0.0
+requests==2.31.0
+aiofiles==23.2.1
+psycopg2-binary==2.9.9  # если будете использовать PostgreSQL
